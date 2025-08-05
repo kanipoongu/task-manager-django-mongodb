@@ -27,7 +27,8 @@ SECRET_KEY = ')37m%(nqr@7c@()a5tgt!1z+74l2e#8gse8c6^*j6yrc56pveg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -132,3 +133,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import os
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Whitenoise config
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
